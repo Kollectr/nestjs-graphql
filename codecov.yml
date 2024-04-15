@@ -1,6 +1,22 @@
+codecov:
+  require_ci_to_pass: yes
+
 coverage:
   status:
     project:
       default:
-        target: 100%
-        threshold: 1%
+        target: auto # Don't allow a decrease
+        threshold: null
+    patch:  # Applies to the new code in the current patch (e.g., pull request)
+      default:
+        target: 60%
+        threshold: null  # No amount of decreased coverage is ignored
+
+ignore:
+  - "**/*.spec.ts"  # Exclude all test files from coverage calculation
+  - "**/test/**"
+
+comment:
+  layout: "reach, diff, flags, files"
+  behavior: default
+  require_changes: false
