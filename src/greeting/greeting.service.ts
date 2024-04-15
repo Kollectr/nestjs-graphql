@@ -5,4 +5,8 @@ export class GreetingService {
   getGreeting(name: string): string {
     return `Hello, ${name}!`;
   }
+
+  getGoodbye(name: string): string {
+    return `Goodbye, ${name}!`;
+  }
 }
