@@ -2,9 +2,10 @@ name: Pipeline
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
   pull_request:
-    branches: [ main ]
+    types: [ opened, synchronize, reopened ]
 
 jobs:
   build:
@@ -23,7 +24,13 @@ jobs:
         run: yarn install
 
       - name: Run unit tests
-        run: yarn test
+        run: yarn test:cov
 
       - name: Run integration tests
         run: yarn test:e2e
+
+      - name: SonarCloud Scan
+        uses: sonarsource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
