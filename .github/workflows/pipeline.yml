@@ -4,11 +4,8 @@ on:
   push:
     branches:
       - main
-      - feature/*
   pull_request:
-    branches:
-      - main
-      - feature/*
+    types: [ opened, synchronize, reopened ]
 
 jobs:
   build:
@@ -27,7 +24,7 @@ jobs:
         run: yarn install
 
       - name: Run unit tests
-        run: yarn test
+        run: yarn test:cov
 
       - name: Run integration tests
         run: yarn test:e2e
