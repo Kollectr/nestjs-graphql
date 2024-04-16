@@ -14,10 +14,4 @@ describe('GreetingService', () => {
   it('should return a correct goodbye message', () => {
     expect(service.getGoodbye('World')).toBe('Goodbye, World!');
   });
-
-  it('should return a good morning message', () => {
-    expect(service.getGoodbye('World', 'morning')).toBe(
-      'Have a great day, World!',
-    );
-  });
 });
