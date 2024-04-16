@@ -11,11 +11,11 @@ export class GreetingService {
     if (timeOfDay) {
       switch (timeOfDay.toLowerCase()) {
         case 'morning':
-          return `Have a great day!`;
+          return `Have a great day, ${name}!`;
         case 'afternoon':
-          return `Enjoy your day!`;
+          return `Enjoy your day, ${name}!!`;
         case 'evening':
-          return `Have a pleasant night!`;
+          return `Have a pleasant night, ${name}!!`;
       }
     }
     return `Goodbye, ${name}!`;

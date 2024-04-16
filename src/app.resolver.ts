@@ -11,7 +11,10 @@ export class AppResolver {
   }
 
   @Query(() => String)
-  sayGoodbye(@Args('name') name: string): string {
-    return this.greetingService.getGoodbye(name);
+  sayGoodbye(
+    @Args('name') name: string,
+    @Args('timeOfDay', { nullable: true }) timeOfDay?: string,
+  ): string {
+    return this.greetingService.getGoodbye(name, timeOfDay);
   }
 }
