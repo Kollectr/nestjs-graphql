@@ -9,4 +9,12 @@ export class AppResolver {
   sayHello(@Args('name') name: string): string {
     return this.greetingService.getGreeting(name);
   }
+
+  @Query(() => String)
+  sayGoodbye(
+    @Args('name') name: string,
+    @Args('timeOfDay', { nullable: true }) timeOfDay?: string,
+  ): string {
+    return this.greetingService.getGoodbye(name, timeOfDay);
+  }
 }
